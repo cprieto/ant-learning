@@ -20,6 +20,9 @@
 	<target name="jar" depends="compile">
 		<mkdir dir="${jar.dir}" />
 		<jar destfile="${jar.dir}/HelloWorld.jar" basedir="${classes.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="com.cprieto.HelloWorld" />
+			</manifest>
 		</jar>
 	</target>
 </project>
