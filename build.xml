@@ -21,12 +21,19 @@
 	<target name="jar" depends="compile">
 		<mkdir dir="${jar.dir}" />
 		<jar destfile="${output.path}" basedir="${classes.dir}">
+		<!--
 			<manifest>
 				<attribute name="Main-Class" value="com.cprieto.HelloWorld" />
 			</manifest>
+		-->
 		</jar>
 	</target>
 	<target name="run" depends="jar">
-		<java jar="${output.path}" fork="true" />	
+		<java fork="true" classname="com.cprieto.HelloWorld">	
+			<classpath>
+				<path refid="classpath" />
+				<path location="${output.path}" />
+			</classpath>
+		</java>
 	</target>
 </project>
