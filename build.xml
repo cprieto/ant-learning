@@ -4,6 +4,7 @@
 	<property name="jar.dir" value="${build.dir}/jar" />
 	<property name="src.dir" value="src" />
 	<property name="lib.dir" value="lib" />
+	<property name="output.path" value="${jar.dir}/HelloWorld.jar" />
 
 	<target name="clean">
 		<delete dir="${build.dir}" />
@@ -19,10 +20,13 @@
 	</target>
 	<target name="jar" depends="compile">
 		<mkdir dir="${jar.dir}" />
-		<jar destfile="${jar.dir}/HelloWorld.jar" basedir="${classes.dir}">
+		<jar destfile="${output.path}" basedir="${classes.dir}">
 			<manifest>
 				<attribute name="Main-Class" value="com.cprieto.HelloWorld" />
 			</manifest>
 		</jar>
+	</target>
+	<target name="run" depends="jar">
+		<java jar="${output.path}" fork="true" />	
 	</target>
 </project>
