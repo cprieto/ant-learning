@@ -1,13 +1,12 @@
 package com.cprieto;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.BasicConfigurator;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class HelloWorld {
-	static Logger logger = Logger.getLogger(HelloWorld.class);
+	static Logger logger = LogManager.getLogger(HelloWorld.class);
 
 	public static void main(String args[]) {
-		BasicConfigurator.configure();
 		logger.info("Hello world");
 	}
 }
